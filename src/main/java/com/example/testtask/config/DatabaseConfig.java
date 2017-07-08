@@ -1,4 +1,4 @@
-package com.example.testtask;
+package com.example.testtask.config;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

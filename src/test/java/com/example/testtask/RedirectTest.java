@@ -25,7 +25,9 @@ public class RedirectTest {
     private static final int REDIRECT_STATUS = 302;
     private static final String HEADER_NAME = "Location";
     private static final String HEADER_VALUE = "www.ya.ru";
-    private static final String BAD_PATH = "/users";
+//    private static final String BAD_PATH = "/users";
+    private static final String BAD_PATH = "/users/id=3";
+//    private static final String BAD_PATH = "/create_tables";
     private static final int NOT_FOUND = 404;
     @Autowired
     WebApplicationContext webApplicationContext;
