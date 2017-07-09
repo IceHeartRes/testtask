@@ -1,11 +1,9 @@
 package com.example.testtask.controllers;
 
 import com.example.testtask.entries.TariffPlane;
-import com.example.testtask.request.RequestError;
-import com.example.testtask.request.RequestSuccess;
 import com.example.testtask.services.DataService;
 import com.example.testtask.utils.ErrorHandler;
-import com.google.gson.Gson;
+import com.example.testtask.utils.ResponseModified;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,19 +30,12 @@ public class ReadTariffPlanesController {
     @RequestMapping(value = "/tariff_planes", method = RequestMethod.GET)
     @ResponseBody
     public void readAllTariffPlanes(HttpServletResponse response) throws IOException {
-        String json;
         try {
             List<TariffPlane> tariffPlanes = dataService.getAllTariffPlanes();
-            json = new Gson().toJson(new RequestSuccess<>(tariffPlanes));
-            response.setStatus(200);
+            ResponseModified.toSuccess(response, tariffPlanes);
         } catch (Exception e) {
             e.printStackTrace();
-            json = new Gson().toJson(new RequestError(ErrorHandler.getHandler(e)));
-            response.setStatus(500);
+            ResponseModified.toFail(response, ErrorHandler.getHandler(e));
         }
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(json);
     }
 }

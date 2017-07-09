@@ -1,11 +1,9 @@
 package com.example.testtask.controllers;
 
 import com.example.testtask.entries.User;
-import com.example.testtask.request.RequestError;
-import com.example.testtask.request.RequestSuccess;
 import com.example.testtask.services.DataService;
 import com.example.testtask.utils.ErrorHandler;
-import com.google.gson.Gson;
+import com.example.testtask.utils.ResponseModified;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,61 +28,36 @@ public class ReadUsersController {
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     @ResponseBody
     public void readAllUsers(HttpServletResponse response) throws IOException {
-        String json;
         try {
             List<User> users = dataService.getAllUsers();
-            json = new Gson().toJson(new RequestSuccess<>(users));
-            response.setStatus(200);
+            ResponseModified.toSuccess(response, users);
         } catch (Exception e) {
             e.printStackTrace();
-            json = new Gson().toJson(new RequestError(ErrorHandler.getHandler(e)));
-            response.setStatus(500);
+            ResponseModified.toFail(response, ErrorHandler.getHandler(e));
         }
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(json);
     }
 
     @RequestMapping(value = "/users/id={id}", method = RequestMethod.GET)
     @ResponseBody
     public void readUserById(@PathVariable("id") int userId, HttpServletResponse response) throws IOException {
-        String json;
         try {
             User user = dataService.getUserById(userId);
-            json = new Gson().toJson(new RequestSuccess<>(Collections.singletonList(user)));
-            response.setStatus(200);
+            ResponseModified.toSuccess(response, Collections.singletonList(user));
         } catch (Exception e) {
             e.printStackTrace();
-            json = new Gson().toJson(new RequestError(ErrorHandler.getHandler(e)));
-            response.setStatus(500);
+            ResponseModified.toFail(response, ErrorHandler.getHandler(e));
         }
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(json);
     }
 
     @RequestMapping(value = "/users/tp={tpid}", method = RequestMethod.GET)
     @ResponseBody
     public void readUsersByTp(@PathVariable("tpid") int tpId, HttpServletResponse response) throws IOException {
-        String json;
         try {
             List<User> users = dataService.getUsersByTp(tpId);
-            json = new Gson().toJson(new RequestSuccess<>(users));
-            response.setStatus(200);
+            ResponseModified.toSuccess(response, users);
         } catch (Exception e) {
             e.printStackTrace();
-            json = new Gson().toJson(new RequestError(ErrorHandler.getHandler(e)));
-            response.setStatus(500);
+            ResponseModified.toFail(response, ErrorHandler.getHandler(e));
         }
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(json);
     }
-
-
-
-
 }
