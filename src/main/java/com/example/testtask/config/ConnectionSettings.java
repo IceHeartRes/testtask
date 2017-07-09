@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "dataSource")
 public class ConnectionSettings {
 
+    private static final String TCP_ADDR = "TEST_PORT_5432_TCP_ADDR";
+    private static final String TCP_PORT = "TEST_PORT_5432_TCP_PORT";
     private static int DEFAULT_MAX_POOL_SIZE = 5;
 
     @Value("${dataSource.driverClassName}")
@@ -28,7 +30,7 @@ public class ConnectionSettings {
     }
 
     public String getUrl() {
-        return url;
+        return String.format( url,System.getenv(TCP_ADDR),System.getenv(TCP_PORT));
     }
 
     public String getName() {

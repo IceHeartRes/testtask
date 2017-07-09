@@ -31,7 +31,7 @@ public class UserTable extends DataTable<UserMapper, User> implements ITable<Use
                 "DROP TABLE IF EXISTS users";
 
         CREATE_TABLE =
-                "CREATE TABLE users (" +
+                "CREATE TABLE IF NOT EXISTS users (" +
                         "id SERIAL," +
                         "name text," +
                         "tpId bigint)";

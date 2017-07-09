@@ -25,7 +25,7 @@ public class MessageTable extends DataTable<MessageMapper, Message> {
                 "DROP TABLE IF EXISTS messages";
 
         CREATE_TABLE =
-                "CREATE TABLE messages (" +
+                "CREATE TABLE IF NOT EXISTS messages (" +
                         "id SERIAL," +
                         "userId bigint," +
                         "date date," +

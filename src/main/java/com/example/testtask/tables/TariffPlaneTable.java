@@ -23,7 +23,7 @@ public class TariffPlaneTable extends DataTable<TariffPlaneMapper, TariffPlane> 
                 "DROP TABLE IF EXISTS tariffplanes";
 
         CREATE_TABLE =
-                "CREATE TABLE tariffplanes (" +
+                "CREATE TABLE IF NOT EXISTS tariffplanes (" +
                         "id SERIAL," +
                         "condition bigint," +
                         "change bigint," +
