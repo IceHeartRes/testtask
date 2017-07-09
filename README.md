@@ -18,7 +18,7 @@ docker run --name testtask --link postgres:test -p 8080:8080 -t resident/testtas
 /users/tpid={TP_ID}
 
 **Получить все тарифные планы**\
-/users/tariff_planes
+/tariff_planes
 
 **Получить все уведомления о смене условий тарифного плана**\
-/users/messages
+/messages
