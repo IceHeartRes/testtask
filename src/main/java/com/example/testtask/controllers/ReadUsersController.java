@@ -22,7 +22,6 @@ public class ReadUsersController {
     private DataService dataService;
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-    @ResponseBody
     public void readAllUsers(HttpServletResponse response) throws IOException {
         try {
             List<User> users = dataService.getAllUsers();
@@ -34,7 +33,6 @@ public class ReadUsersController {
     }
 
     @RequestMapping(value = "/users/id={id}", method = RequestMethod.GET)
-    @ResponseBody
     public void readUserById(@PathVariable("id") int userId, HttpServletResponse response) throws IOException {
         try {
             User user = dataService.getUserById(userId);
@@ -46,7 +44,6 @@ public class ReadUsersController {
     }
 
     @RequestMapping(value = "/users/tp={tpid}", method = RequestMethod.GET)
-    @ResponseBody
     public void readUsersByTp(@PathVariable("tpid") int tpId, HttpServletResponse response) throws IOException {
         try {
             List<User> users = dataService.getUsersByTp(tpId);

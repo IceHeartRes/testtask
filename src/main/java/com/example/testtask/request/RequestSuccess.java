@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class RequestSuccess<T> {
     private boolean status = true;
-    private List<T> result;
+    private List<T> result=null;
 
     public RequestSuccess(List<T> result) {
         this.result = result;

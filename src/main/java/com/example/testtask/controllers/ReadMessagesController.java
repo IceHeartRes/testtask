@@ -24,7 +24,6 @@ public class ReadMessagesController {
     private DataService dataService;
 
     @RequestMapping(value = "/messages", method = RequestMethod.GET)
-    @ResponseBody
     public void readAllTariffPlanes(HttpServletResponse response) throws IOException {
         try {
             List<Message> messages = dataService.getAllMessages();

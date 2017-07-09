@@ -24,7 +24,6 @@ public class ReadTariffPlanesController {
     private DataService dataService;
 
     @RequestMapping(value = "/tariff_planes", method = RequestMethod.GET)
-    @ResponseBody
     public void readAllTariffPlanes(HttpServletResponse response) throws IOException {
         try {
             List<TariffPlane> tariffPlanes = dataService.getAllTariffPlanes();

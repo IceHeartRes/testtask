@@ -1,6 +1,8 @@
 package com.example.testtask.controllers;
 
 import com.example.testtask.services.DataService;
+import com.example.testtask.utils.ErrorHandler;
+import com.example.testtask.utils.ResponseModified;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,34 +23,13 @@ public class DemoDataController {
     private DataService dataService;
 
     @RequestMapping(value = "/create_tables", method = RequestMethod.GET)
-    @ResponseBody
     public void createDemoTableAndFill(HttpServletResponse response) throws IOException {
-        String json;
         try {
             dataService.createDemoTables();
-            json = new Gson().toJson(new RequestSuccess());
-            response.setStatus(200);
+            ResponseModified.toSuccess(response, null);
         } catch (Exception e) {
             e.printStackTrace();
-            json = new Gson().toJson(new RequestError(e.getLocalizedMessage()));
-            response.setStatus(500);
-        }
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(json);
-    }
-
-    private class RequestSuccess {
-        private boolean result = true;
-    }
-
-    private class RequestError {
-        private boolean result = false;
-        private String message;
-
-        RequestError(String message) {
-            this.message = message;
+            ResponseModified.toFail(response, ErrorHandler.getHandler(e));
         }
     }
 }
