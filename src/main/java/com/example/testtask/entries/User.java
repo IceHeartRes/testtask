@@ -20,32 +20,16 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getTpId() {
-        return tpId;
     }
 
     public void setTpId(int tpId) {
         this.tpId = tpId;
     }
 
-    public List<Message> getMessages() {
-        return messages;
-    }
-
     public void setMessages(List<Message> messages) {
         this.messages = messages;
-    }
-
-    public TariffPlane getTariffPlane() {
-        return tariffPlane;
     }
 
     public void setTariffPlane(TariffPlane tariffPlane) {

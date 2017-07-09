@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+    <!--<users id="1" name="Ivan" tpId="1"/>-->
+    <!--<users id="2" name="Vasiliy" tpId="3"/>-->
+    <!--<users id="3" name="Sergey" tpId="3"/>-->
+    <!--<users id="4" name="Pavel" tpId="2"/>-->
+    <!--<users id="5" name="Aleksandr" tpId="1"/>-->
+
+    <!--<tariffplanes id="1" condition="100" change="1" time_interval="50" description="стоимость одной минуты разговора, в копейках"/>-->
+    <!--<tariffplanes id="2" condition="250" change="5" time_interval="30" description="стоимость одного СМС, в копейках"/>-->
+    <!--<tariffplanes id="3" condition="10" change="1" time_interval="100" description="стоимость одного Мб интернета, в копейках"/>-->
+
+    <!--<messages id="1" userid="1" date="2016-05-03" message="условия тарифного плана изменены."/>-->
+    <!--<messages id="1" userid="3" date="2016-06-12" message="условия тарифного плана изменены."/>-->
+    <!--<messages id="1" userid="3" date="2016-09-20" message="условия тарифного плана изменены."/>-->
+    <!--<messages id="1" userid="2" date="2016-07-30" message="условия тарифного плана изменены."/>-->
+    <!--<messages id="1" userid="1" date="2016-06-22" message="условия тарифного плана изменены."/>-->
+    <!--<messages id="1" userid="5" date="2016-01-12" message="условия тарифного плана изменены."/>-->
+    <!--<messages id="1" userid="4" date="2016-07-01" message="условия тарифного плана изменены."/>-->
+    <!--<messages id="1" userid="4" date="2016-07-01" message="условия тарифного плана изменены."/>-->
+</dataset>

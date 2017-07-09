@@ -7,12 +7,11 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 /**
  * Created by resident on 08.07.17.
- *
  */
 public abstract class DataTable<M, I> implements ITable<I> {
-    String DROP_TABLE;
-    String CREATE_TABLE;
-    String INSERT_INTO_TABLE;
+    protected String DROP_TABLE;
+    protected String CREATE_TABLE;
+    protected String INSERT_INTO_TABLE;
     String SELECT_ALL_FROM_TABLE;
 
     @Autowired

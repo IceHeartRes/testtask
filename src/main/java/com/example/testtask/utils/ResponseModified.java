@@ -31,5 +31,4 @@ public class ResponseModified {
     public static void toFail(HttpServletResponse response, String message) throws IOException {
         configResponse(response, STATUS_FAIL, new Gson().toJson(new RequestError(message)));
     }
-
 }

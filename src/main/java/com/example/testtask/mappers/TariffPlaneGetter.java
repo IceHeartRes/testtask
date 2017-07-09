@@ -8,6 +8,7 @@ import java.sql.SQLException;
 /**
  * Created by resident on 09.07.17.
  */
+
 public class TariffPlaneGetter {
 
     public static TariffPlane parse(ResultSet rs) throws SQLException {

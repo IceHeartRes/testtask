@@ -7,7 +7,6 @@ import com.example.testtask.mappers.UserMapper;
 import com.example.testtask.sql.interfaces.ITable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -33,11 +32,11 @@ public class UserTable extends DataTable<UserMapper, User> implements ITable<Use
                         "name text," +
                         "tpId bigint)";
         INSERT_INTO_TABLE =
-                "INSERT INTO users (name, tpid) VALUES ('qwe',1);" +
-                        "INSERT INTO users (name, tpid) VALUES ('asd',3);" +
-                        "INSERT INTO users (name, tpid) VALUES ('asd',3);" +
-                        "INSERT INTO users (name, tpid) VALUES ('asd',2);" +
-                        "INSERT INTO users (name, tpid) VALUES ('asd',1);";
+                "INSERT INTO users (name, tpid) VALUES ('Ivan',1);" +
+                        "INSERT INTO users (name, tpid) VALUES ('Vasiliy',3);" +
+                        "INSERT INTO users (name, tpid) VALUES ('Sergey',3);" +
+                        "INSERT INTO users (name, tpid) VALUES ('Pavel',2);" +
+                        "INSERT INTO users (name, tpid) VALUES ('Aleksandr',1);";
 
         SELECT_ALL_FROM_TABLE = "SELECT * FROM users, tariffplanes WHERE users.tpid = tariffplanes.id";
     }

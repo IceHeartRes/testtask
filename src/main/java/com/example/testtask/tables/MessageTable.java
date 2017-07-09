@@ -3,9 +3,7 @@ package com.example.testtask.tables;
 import com.example.testtask.entries.Message;
 import com.example.testtask.exceptions.MessagesNotFoundException;
 import com.example.testtask.mappers.MessageMapper;
-import com.example.testtask.sql.interfaces.ITable;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -30,14 +28,14 @@ public class MessageTable extends DataTable<MessageMapper, Message> {
                         "date date," +
                         "message text)";
         INSERT_INTO_TABLE =
-                "INSERT INTO messages (userid, date, message) VALUES (1, '2016.05.03','условия тарифного плана изменены.');" +
-                        "INSERT INTO messages (userid, date, message) VALUES (3, '2016.06.12','условия тарифного плана изменены.');" +
-                        "INSERT INTO messages (userid, date, message) VALUES (3, '2016.09.20','условия тарифного плана изменены.');" +
-                        "INSERT INTO messages (userid, date, message) VALUES (2, '2016.07.30','условия тарифного плана изменены.');" +
-                        "INSERT INTO messages (userid, date, message) VALUES (1, '2016.06.22','условия тарифного плана изменены.');" +
-                        "INSERT INTO messages (userid, date, message) VALUES (5, '2016.01.12','условия тарифного плана изменены.');" +
-                        "INSERT INTO messages (userid, date, message) VALUES (4, '2016.07.01','условия тарифного плана изменены.');" +
-                        "INSERT INTO messages (userid, date, message) VALUES (4, '2016.07.01','условия тарифного плана изменены.');";
+                "INSERT INTO messages (userid, date, message) VALUES (1, '2016-05-03','условия тарифного плана изменены.');" +
+                        "INSERT INTO messages (userid, date, message) VALUES (3, '2016-06-12','условия тарифного плана изменены.');" +
+                        "INSERT INTO messages (userid, date, message) VALUES (3, '2016-09-20','условия тарифного плана изменены.');" +
+                        "INSERT INTO messages (userid, date, message) VALUES (2, '2016-07-30','условия тарифного плана изменены.');" +
+                        "INSERT INTO messages (userid, date, message) VALUES (1, '2016-06-22','условия тарифного плана изменены.');" +
+                        "INSERT INTO messages (userid, date, message) VALUES (5, '2016-01-12','условия тарифного плана изменены.');" +
+                        "INSERT INTO messages (userid, date, message) VALUES (4, '2016-07-01','условия тарифного плана изменены.');" +
+                        "INSERT INTO messages (userid, date, message) VALUES (4, '2016-07-01','условия тарифного плана изменены.');";
 
         SELECT_ALL_FROM_TABLE = "SELECT * FROM messages";
     }
