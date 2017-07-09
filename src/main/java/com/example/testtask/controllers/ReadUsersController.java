@@ -1,19 +1,13 @@
 package com.example.testtask.controllers;
 
+import com.example.testtask.entries.User;
 import com.example.testtask.request.RequestError;
 import com.example.testtask.request.RequestSuccess;
 import com.example.testtask.services.DataService;
-import com.example.testtask.entries.User;
-import com.example.testtask.exceptions.DuplicateUserIdException;
-import com.example.testtask.exceptions.UsersNotFoundException;
 import com.example.testtask.utils.ErrorHandler;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -24,7 +18,7 @@ import java.util.List;
  * Created by Resident on 05.07.2017.
  * контроллер чтения информации о пользователях
  */
-@Controller
+@RestController
 public class ReadUsersController {
     private final DataService dataService;
 
@@ -39,7 +33,7 @@ public class ReadUsersController {
         String json;
         try {
             List<User> users = dataService.getAllUsers();
-            json = new Gson().toJson(new RequestSuccess(users));
+            json = new Gson().toJson(new RequestSuccess<>(users));
             response.setStatus(200);
         } catch (Exception e) {
             e.printStackTrace();
@@ -58,7 +52,7 @@ public class ReadUsersController {
         String json;
         try {
             User user = dataService.getUserById(userId);
-            json = new Gson().toJson(new RequestSuccess(Collections.singletonList(user)));
+            json = new Gson().toJson(new RequestSuccess<>(Collections.singletonList(user)));
             response.setStatus(200);
         } catch (Exception e) {
             e.printStackTrace();

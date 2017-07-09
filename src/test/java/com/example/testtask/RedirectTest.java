@@ -29,6 +29,7 @@ public class RedirectTest {
     private static final String BAD_PATH = "/users/id=3";
 //    private static final String BAD_PATH = "/create_tables";
     private static final int NOT_FOUND = 404;
+    private static final int SUCCESS_STATUS = 200;
     @Autowired
     WebApplicationContext webApplicationContext;
     MockMvc mockMvc;
@@ -38,16 +39,10 @@ public class RedirectTest {
         mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
     }
 
-    @Test
-    public void redirect() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get(PATH))
-                .andExpect(MockMvcResultMatchers.status().is(REDIRECT_STATUS))
-                .andExpect(MockMvcResultMatchers.header().string(HEADER_NAME, HEADER_VALUE));
-    }
 
     @Test
     public void checkKey() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(BAD_PATH))
-                .andExpect(MockMvcResultMatchers.status().is(NOT_FOUND));
+                .andExpect(MockMvcResultMatchers.status().is(SUCCESS_STATUS));
     }
 }

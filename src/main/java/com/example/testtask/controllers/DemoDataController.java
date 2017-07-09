@@ -3,10 +3,10 @@ package com.example.testtask.controllers;
 import com.example.testtask.services.DataService;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -15,7 +15,7 @@ import java.io.IOException;
  * Created by Resident on 05.07.2017.
  * контроллер заполнения таблиц демонстрационными данными
  */
-@Controller
+@RestController
 public class DemoDataController {
     private final DataService dataService;
 
