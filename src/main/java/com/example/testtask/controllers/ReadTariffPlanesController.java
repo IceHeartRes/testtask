@@ -20,12 +20,8 @@ import java.util.List;
  */
 @RestController
 public class ReadTariffPlanesController {
-    private final DataService dataService;
-
     @Autowired
-    public ReadTariffPlanesController(DataService dataService) {
-        this.dataService = dataService;
-    }
+    private DataService dataService;
 
     @RequestMapping(value = "/tariff_planes", method = RequestMethod.GET)
     @ResponseBody

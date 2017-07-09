@@ -14,28 +14,19 @@ import java.util.List;
 
 /**
  * Created by Resident on 06.07.2017.
+ * сервис работы с данными
  */
 
 @Component
 public class DataService {
-
-    private final DemoDataDao demoDataDao;
-    private final UserDataDao userDataDao;
-    private final TariffPlaneDataDao tariffPlaneDataDao;
-    private final MessageDataDao messageDataDao;
-
     @Autowired
-    public DataService(
-            DemoDataDao demoDataDao,
-            UserDataDao userDataDao,
-            TariffPlaneDataDao tariffPlaneDataDao,
-            MessageDataDao messageDataDao
-    ) {
-        this.demoDataDao = demoDataDao;
-        this.userDataDao = userDataDao;
-        this.tariffPlaneDataDao = tariffPlaneDataDao;
-        this.messageDataDao = messageDataDao;
-    }
+    private DemoDataDao demoDataDao;
+    @Autowired
+    private UserDataDao userDataDao;
+    @Autowired
+    private TariffPlaneDataDao tariffPlaneDataDao;
+    @Autowired
+    private MessageDataDao messageDataDao;
 
     public void createDemoTables() throws Exception{
         demoDataDao.createDemoTables();

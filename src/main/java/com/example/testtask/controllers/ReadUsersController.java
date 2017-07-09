@@ -18,12 +18,8 @@ import java.util.List;
  */
 @RestController
 public class ReadUsersController {
-    private final DataService dataService;
-
     @Autowired
-    public ReadUsersController(DataService dataService) {
-        this.dataService = dataService;
-    }
+    private DataService dataService;
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     @ResponseBody

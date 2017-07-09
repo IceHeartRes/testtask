@@ -20,12 +20,8 @@ import java.util.List;
  */
 @RestController
 public class ReadMessagesController {
-    private final DataService dataService;
-
     @Autowired
-    public ReadMessagesController(DataService dataService) {
-        this.dataService = dataService;
-    }
+    private DataService dataService;
 
     @RequestMapping(value = "/messages", method = RequestMethod.GET)
     @ResponseBody

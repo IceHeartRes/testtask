@@ -17,12 +17,8 @@ import java.io.IOException;
  */
 @RestController
 public class DemoDataController {
-    private final DataService dataService;
-
     @Autowired
-    public DemoDataController(DataService dataService) {
-        this.dataService = dataService;
-    }
+    private DataService dataService;
 
     @RequestMapping(value = "/create_tables", method = RequestMethod.GET)
     @ResponseBody
@@ -51,7 +47,7 @@ public class DemoDataController {
         private boolean result = false;
         private String message;
 
-        public RequestError(String message) {
+        RequestError(String message) {
             this.message = message;
         }
     }

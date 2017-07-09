@@ -16,20 +16,12 @@ import java.util.List;
 
 @Repository
 public class DemoDataDaoImpl implements DemoDataDao {
-    private UserTable userTable;
-    private final TariffPlaneTable tariffPlaneTable;
-    private final MessageTable messageTable;
-
     @Autowired
-    public DemoDataDaoImpl(
-            UserTable userTable,
-            TariffPlaneTable tariffPlaneTable,
-            MessageTable messageTable
-    ) {
-        this.userTable = userTable;
-        this.tariffPlaneTable = tariffPlaneTable;
-        this.messageTable = messageTable;
-    }
+    private UserTable userTable;
+    @Autowired
+    private  TariffPlaneTable tariffPlaneTable;
+    @Autowired
+    private  MessageTable messageTable;
 
     @Override
     public void createDemoTables() {

@@ -12,13 +12,12 @@ import java.util.List;
 
 /**
  * Created by resident on 08.07.17.
+ * таблица тарифных планов
  */
 @Component
 public class TariffPlaneTable extends DataTable<TariffPlaneMapper, TariffPlane> implements ITable<TariffPlane> {
 
-    public TariffPlaneTable(TariffPlaneMapper mapper, NamedParameterJdbcTemplate jdbcTemplate) {
-        super(mapper, jdbcTemplate);
-
+    public TariffPlaneTable() {
         DROP_TABLE =
                 "DROP TABLE IF EXISTS tariffplanes";
 
@@ -36,7 +35,6 @@ public class TariffPlaneTable extends DataTable<TariffPlaneMapper, TariffPlane> 
 
         SELECT_ALL_FROM_TABLE = "SELECT * FROM tariffplanes";
     }
-
 
     @Override
     public List<TariffPlane> readAll() {

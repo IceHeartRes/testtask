@@ -17,14 +17,8 @@ import java.util.List;
 
 @Repository
 public class MessageDaoImpl implements MessageDataDao {
-
-    private MessageTable messageTable;
-
     @Autowired
-    public MessageDaoImpl(MessageTable messageTable) {
-        this.messageTable = messageTable;
-    }
-
+    private MessageTable messageTable;
 
     @Override
     public List<Message> getAllMessages() {

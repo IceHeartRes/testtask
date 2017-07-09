@@ -12,15 +12,14 @@ import java.util.List;
 
 /**
  * Created by resident on 08.07.17.
+ * таблица уведомлений пользователей о смене условий тарифных планов
  */
 @Component
 public class MessageTable extends DataTable<MessageMapper, Message> {
 
     private static final String SELECT_FROM_TABLE = "SELECT * FROM messages WHERE userid = :userid";
 
-    public MessageTable(MessageMapper mapper, NamedParameterJdbcTemplate jdbcTemplate) {
-        super(mapper, jdbcTemplate);
-
+    public MessageTable() {
         DROP_TABLE =
                 "DROP TABLE IF EXISTS messages";
 
@@ -57,7 +56,7 @@ public class MessageTable extends DataTable<MessageMapper, Message> {
         return messages;
     }
 
-    public List<Message> readMessage(int userId) {
+    public List<Message> readMessagesByUserId(int userId) {
         MapSqlParameterSource mapParam = new MapSqlParameterSource();
         mapParam.addValue("userid", Integer.valueOf(userId));
 

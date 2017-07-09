@@ -1,6 +1,5 @@
 package com.example.testtask.mappers;
 
-import com.example.testtask.entries.TariffPlane;
 import com.example.testtask.entries.User;
 import com.example.testtask.tables.MessageTable;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,16 +15,8 @@ import java.sql.SQLException;
  */
 @Component
 public class UserMapper implements RowMapper<User> {
-
-    private MessageTable messageTable;
-
     @Autowired
-    public UserMapper(MessageTable messageTable) {
-        this.messageTable = messageTable;
-    }
-
-
-
+    private MessageTable messageTable;
 
     @Override
     public User mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -39,8 +30,7 @@ public class UserMapper implements RowMapper<User> {
         MapSqlParameterSource mapParam = new MapSqlParameterSource();
         mapParam.addValue("userid", user.getId());
 
-
-        user.setMessages(messageTable.readMessage(user.getId()));
+        user.setMessages(messageTable.readMessagesByUserId(user.getId()));
 
         return user;
     }

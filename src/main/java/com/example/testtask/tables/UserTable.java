@@ -14,19 +14,16 @@ import java.util.List;
 
 /**
  * Created by resident on 08.07.17.
+ * таблица пользователей
  */
 @Component
 public class UserTable extends DataTable<UserMapper, User> implements ITable<User> {
-//|                                                       "SELECT * FROM users, tariffplanes WHERE users.tpid = tariffplanes.id"
     private static final String SELECT_BY_ID_FROM_TABLE = "SELECT * FROM users, tariffplanes WHERE users.id = :userid AND users.tpid = tariffplanes.id";
     private static final String SELECT_BY_TP_FROM_TABLE = "SELECT * FROM users, tariffplanes WHERE users.tpid = :tpid AND users.tpid = tariffplanes.id";
-    private final MessageTable messageTable;
-
     @Autowired
-    public UserTable(UserMapper mapper, NamedParameterJdbcTemplate jdbcTemplate, MessageTable messageTable) {
-        super(mapper, jdbcTemplate);
-        this.messageTable = messageTable;
+    private MessageTable messageTable;
 
+    public UserTable() {
         DROP_TABLE =
                 "DROP TABLE IF EXISTS users";
 
@@ -63,7 +60,7 @@ public class UserTable extends DataTable<UserMapper, User> implements ITable<Use
         mapParam.addValue("userid", user.getId());
 
 
-        user.setMessages(messageTable.readMessage(user.getId()));
+        user.setMessages(messageTable.readMessagesByUserId(user.getId()));
     }
 
     public User readById(int userId){

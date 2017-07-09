@@ -17,13 +17,8 @@ import java.util.List;
 
 @Repository
 public class TariffPlaneDaoImpl implements TariffPlaneDataDao {
-    private TariffPlaneTable tariffPlaneTable;
-
     @Autowired
-    public TariffPlaneDaoImpl(TariffPlaneTable tariffPlaneTable) {
-        this.tariffPlaneTable = tariffPlaneTable;
-    }
-
+    private TariffPlaneTable tariffPlaneTable;
 
     @Override
     public List<TariffPlane> getAllTariffPlanes() {

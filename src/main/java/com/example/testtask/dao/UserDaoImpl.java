@@ -17,12 +17,8 @@ import java.util.List;
 
 @Repository
 public class UserDaoImpl implements UserDataDao {
-    private UserTable userTable;
-
     @Autowired
-    public UserDaoImpl(UserTable userTable) {
-        this.userTable = userTable;
-    }
+    private UserTable userTable;
 
     @Override
     public List<User> getAllUsers() {
