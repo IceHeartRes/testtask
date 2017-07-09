@@ -2,7 +2,8 @@
 .idea
 .mnv
 .out
-.src/docker
+src/main/docker
+.gitignore
 *.iws
 *.iml
 *.ipr
